@@ -1,0 +1,28 @@
+func findElem(in array: [Int]) -> Int {
+    
+    var i = 0
+    var j = array.count - 1
+    
+    var leftMax: Int = array[i]
+    var rightMin: Int = array[j]
+    
+    while (i<j) {
+        
+        if array[i] > leftMax {
+            leftMax = array[i]
+        }
+        
+        if array[j] < rightMin {
+            rightMin = array[j]
+        }
+        
+        i += 1
+        j -= 1
+    }
+    
+    if (leftMax < rightMin) && ((j+1) != (array.count - 1)) {
+        return array[j+1]
+    } else {
+        return -1
+    }
+}
